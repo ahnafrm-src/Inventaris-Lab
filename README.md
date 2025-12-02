@@ -1,61 +1,148 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Inventaris-Lab
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem Informasi Manajemen Inventaris Laboratorium.
 
-## About Laravel
+Proyek ini bertujuan untuk menyediakan solusi digital yang efisien untuk mengelola aset, peralatan, dan stok di lingkungan laboratorium, memudahkan staf dalam pemantauan dan administrasi.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+***
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌟 Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Manajemen Data Inventaris**: Menyimpan, mengedit, dan menghapus detail lengkap setiap item inventaris (nama, kode, spesifikasi, dll.).
+- **Pencatatan Stok Real-Time**: Melacak jumlah stok yang tersedia, yang sedang digunakan, atau yang rusak.
+- **Kategorisasi**: Pengelompokan barang berdasarkan jenis, lokasi, atau sumber perolehan.
+- **Fitur Peminjaman/Pengembalian (Opsional)**: Mencatat transaksi peminjaman alat oleh pengguna (mahasiswa/staf).
+- **Laporan Data**: Menghasilkan laporan inventaris dan stok dalam format yang mudah dibaca.
+- **Otentikasi Pengguna**: Sistem login terpisah untuk hak akses (misalnya, Admin dan Staf).
 
-## Learning Laravel
+***
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Teknologi yang Digunakan
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Proyek ini dibangun menggunakan kerangka kerja (framework) dan bahasa pemrograman berbasis web yang populer:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Backend Framework**: **[Laravel](https://laravel.com/)** (PHP)
+- **Bahasa Pemrograman**: PHP
+- **Database**: MySQL/MariaDB (Dapat dikonfigurasi melalui `.env`)
+- **Frontend**: HTML, CSS, JavaScript
+- **Templating Engine**: Blade
+- **Package Manager**: Composer (untuk PHP) dan NPM/Yarn (untuk aset frontend)
 
-## Laravel Sponsors
+***
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## ⚙️ Prasyarat Instalasi
 
-### Premium Partners
+Sebelum memulai, pastikan Anda telah menginstal lingkungan pengembangan yang diperlukan:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+1.  **Web Server**: Apache atau Nginx
+2.  **PHP**: Versi 8.1 atau lebih tinggi
+3.  **Database**: MySQL/MariaDB
+4.  **Composer**: Package manager untuk PHP
+5.  **Node.js & NPM/Yarn**: Untuk kompilasi aset frontend
 
-## Contributing
+***
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📂 Susunan Project
 
-## Code of Conduct
+Struktur direktori utama proyek ini mengikuti standar konvensi **Laravel**:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+.
+├── app/                  # Logika inti aplikasi (Models, Controllers, dll.)
+├── bootstrap/            # Skrip bootstrap framework
+├── config/               # File konfigurasi
+├── database/             # Migrasi, Seeder, dan Factory database
+├── public/               # File yang dapat diakses publik (index.php, aset)
+├── resources/            # Aset mentah (Blade views, Sass/Less, JavaScript)
+├── routes/               # Semua definisi rute aplikasi (web, api)
+├── storage/              # Cache, sesi, log
+├── tests/                # Unit dan fitur testing
+├── .env.example          # Contoh konfigurasi lingkungan
+├── artisan               # Console command line untuk Laravel
+└── composer.json         # Daftar dependensi PHP
+🚀 Contoh Penggunaan
+Ikuti langkah-langkah berikut untuk mengatur dan menjalankan aplikasi secara lokal:
 
-## Security Vulnerabilities
+Kloning Repositori:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Bash
 
-## License
+git clone [https://github.com/ahnafrm-src/Inventaris-Lab.git](https://github.com/ahnafrm-src/Inventaris-Lab.git)
+cd Inventaris-Lab
+Instalasi Dependensi PHP:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Bash
+
+composer install
+Konfigurasi Lingkungan:
+
+Salin file .env.example menjadi .env:
+
+Bash
+
+cp .env.example .env
+Buat kunci aplikasi:
+
+Bash
+
+php artisan key:generate
+Konfigurasi detail koneksi database Anda di file .env.
+
+Migrasi Database:
+
+Bash
+
+php artisan migrate
+# Jika Anda memiliki data awal, jalankan:
+# php artisan db:seed
+Instalasi & Kompilasi Aset Frontend:
+
+Bash
+
+npm install
+npm run dev  # Untuk pengembangan
+# atau npm run build # Untuk produksi
+Jalankan Aplikasi:
+
+Bash
+
+php artisan serve
+Aplikasi akan dapat diakses melalui URL lokal yang ditampilkan (biasanya http://127.0.0.1:8000).
+
+🤝 Kontribusi
+Kontribusi Anda sangat kami hargai! Untuk berkontribusi, ikuti langkah-langkah di bawah ini:
+
+Lakukan Fork repositori ini.
+
+Buat branch fitur baru (git checkout -b fitur/nama-fitur).
+
+Commit perubahan Anda (git commit -m 'Tambahkan: Deskripsi fitur').
+
+Push ke branch (git push origin fitur/nama-fitur).
+
+Ajukan Pull Request baru.
+
+📜 Lisensi
+Proyek ini dilisensikan di bawah Lisensi MIT.
+
+MIT License
+
+Copyright (c) [Tahun Saat Ini] ahnafrm-src
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
