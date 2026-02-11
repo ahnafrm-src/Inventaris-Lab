@@ -1,148 +1,133 @@
 # Inventaris-Lab
 
-Sistem Informasi Manajemen Inventaris Laboratorium.
+Inventaris-Lab adalah aplikasi manajemen inventaris laboratorium berbasis **Laravel** untuk membantu pencatatan data barang, kategori, peminjam, dan transaksi peminjaman secara terstruktur.
 
-Proyek ini bertujuan untuk menyediakan solusi digital yang efisien untuk mengelola aset, peralatan, dan stok di lingkungan laboratorium, memudahkan staf dalam pemantauan dan administrasi.
+## ✨ Fitur Utama
 
-***
+- **Autentikasi pengguna** dengan middleware `auth.custom`.
+- **Manajemen master data**:
+  - Barang
+  - Kategori
+  - Peminjam
+  - Lab
+  - User
+- **Manajemen transaksi peminjaman** untuk mendukung proses operasional laboratorium.
+- **Halaman dashboard per modul** untuk memudahkan monitoring data.
 
-## 🌟 Fitur Utama
+## 🧱 Teknologi
 
-- **Manajemen Data Inventaris**: Menyimpan, mengedit, dan menghapus detail lengkap setiap item inventaris (nama, kode, spesifikasi, dll.).
-- **Pencatatan Stok Real-Time**: Melacak jumlah stok yang tersedia, yang sedang digunakan, atau yang rusak.
-- **Kategorisasi**: Pengelompokan barang berdasarkan jenis, lokasi, atau sumber perolehan.
-- **Fitur Peminjaman/Pengembalian (Opsional)**: Mencatat transaksi peminjaman alat oleh pengguna (mahasiswa/staf).
-- **Laporan Data**: Menghasilkan laporan inventaris dan stok dalam format yang mudah dibaca.
-- **Otentikasi Pengguna**: Sistem login terpisah untuk hak akses (misalnya, Admin dan Staf).
+- **Backend**: Laravel (PHP)
+- **Frontend**: Blade, CSS, JavaScript (Vite)
+- **Database**: MySQL/MariaDB (konfigurasi via `.env`)
+- **Dependency manager**: Composer & npm
 
-***
+## 📁 Struktur Direktori Inti
 
-## 🛠️ Teknologi yang Digunakan
+```text
+app/            # Controller, model, middleware, dan service provider
+config/         # Konfigurasi aplikasi Laravel
+database/       # Migration, seeder, dan factory
+public/         # Entry point aplikasi dan aset publik
+resources/      # Blade view, CSS, JS
+routes/         # Definisi route web/console
+storage/        # Log, cache, session, dan file runtime
+tests/          # Unit test & feature test
+```
 
-Proyek ini dibangun menggunakan kerangka kerja (framework) dan bahasa pemrograman berbasis web yang populer:
+## 🚀 Cara Menjalankan di Lokal
 
-- **Backend Framework**: **[Laravel](https://laravel.com/)** (PHP)
-- **Bahasa Pemrograman**: PHP
-- **Database**: MySQL/MariaDB (Dapat dikonfigurasi melalui `.env`)
-- **Frontend**: HTML, CSS, JavaScript
-- **Templating Engine**: Blade
-- **Package Manager**: Composer (untuk PHP) dan NPM/Yarn (untuk aset frontend)
-
-***
-
-## ⚙️ Prasyarat Instalasi
-
-Sebelum memulai, pastikan Anda telah menginstal lingkungan pengembangan yang diperlukan:
-
-1.  **Web Server**: Apache atau Nginx
-2.  **PHP**: Versi 8.1 atau lebih tinggi
-3.  **Database**: MySQL/MariaDB
-4.  **Composer**: Package manager untuk PHP
-5.  **Node.js & NPM/Yarn**: Untuk kompilasi aset frontend
-
-***
-
-## 📂 Susunan Project
-
-Struktur direktori utama proyek ini mengikuti standar konvensi **Laravel**:
+### 1) Clone repository
 
 ```bash
-.
-├── app/                  # Logika inti aplikasi (Models, Controllers, dll.)
-├── bootstrap/            # Skrip bootstrap framework
-├── config/               # File konfigurasi
-├── database/             # Migrasi, Seeder, dan Factory database
-├── public/               # File yang dapat diakses publik (index.php, aset)
-├── resources/            # Aset mentah (Blade views, Sass/Less, JavaScript)
-├── routes/               # Semua definisi rute aplikasi (web, api)
-├── storage/              # Cache, sesi, log
-├── tests/                # Unit dan fitur testing
-├── .env.example          # Contoh konfigurasi lingkungan
-├── artisan               # Console command line untuk Laravel
-└── composer.json         # Daftar dependensi PHP
-🚀 Contoh Penggunaan
-Ikuti langkah-langkah berikut untuk mengatur dan menjalankan aplikasi secara lokal:
-
-Kloning Repositori:
-
-Bash
-
-git clone [https://github.com/ahnafrm-src/Inventaris-Lab.git](https://github.com/ahnafrm-src/Inventaris-Lab.git)
+git clone https://github.com/ahnafrm-src/Inventaris-Lab.git
 cd Inventaris-Lab
-Instalasi Dependensi PHP:
+```
 
-Bash
+### 2) Install dependency backend
 
+```bash
 composer install
-Konfigurasi Lingkungan:
+```
 
-Salin file .env.example menjadi .env:
+### 3) Konfigurasi environment
 
-Bash
-
+```bash
 cp .env.example .env
-Buat kunci aplikasi:
-
-Bash
-
 php artisan key:generate
-Konfigurasi detail koneksi database Anda di file .env.
+```
 
-Migrasi Database:
+Lalu sesuaikan konfigurasi database di file `.env` (`DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`).
 
-Bash
+### 4) Jalankan migrasi database
 
+```bash
 php artisan migrate
-# Jika Anda memiliki data awal, jalankan:
-# php artisan db:seed
-Instalasi & Kompilasi Aset Frontend:
+```
 
-Bash
+Jika diperlukan, jalankan seeder:
 
+```bash
+php artisan db:seed
+```
+
+### 5) Install dependency frontend
+
+```bash
 npm install
-npm run dev  # Untuk pengembangan
-# atau npm run build # Untuk produksi
-Jalankan Aplikasi:
+```
 
-Bash
+### 6) Jalankan aplikasi
 
+Terminal 1 (server Laravel):
+
+```bash
 php artisan serve
-Aplikasi akan dapat diakses melalui URL lokal yang ditampilkan (biasanya http://127.0.0.1:8000).
+```
 
-🤝 Kontribusi
-Kontribusi Anda sangat kami hargai! Untuk berkontribusi, ikuti langkah-langkah di bawah ini:
+Terminal 2 (Vite dev server):
 
-Lakukan Fork repositori ini.
+```bash
+npm run dev
+```
 
-Buat branch fitur baru (git checkout -b fitur/nama-fitur).
+Aplikasi biasanya bisa diakses di `http://127.0.0.1:8000`.
 
-Commit perubahan Anda (git commit -m 'Tambahkan: Deskripsi fitur').
+## 🧭 Ringkasan Endpoint Utama
 
-Push ke branch (git push origin fitur/nama-fitur).
+Berikut endpoint yang tersedia berdasarkan route saat ini:
 
-Ajukan Pull Request baru.
+- `/login` (GET/POST) dan `/logout`
+- `/` (home)
+- Resource route:
+  - `/user`
+  - `/barang`
+  - `/kategori`
+  - `/peminjam`
+  - `/peminjaman`
+  - `/labs`
+- Dashboard route tambahan:
+  - `/peminjams/dashboard`
+  - `/kategoris/dashboard`
+  - `/barangs/dashboard`
 
-📜 Lisensi
-Proyek ini dilisensikan di bawah Lisensi MIT.
+> Sebagian besar route di atas dilindungi middleware `auth.custom`.
 
-MIT License
+## 🧪 Pengujian
 
-Copyright (c) [Tahun Saat Ini] ahnafrm-src
+Jalankan test dengan:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+```bash
+php artisan test
+```
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## 🤝 Kontribusi
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+1. Fork repository ini.
+2. Buat branch fitur baru: `git checkout -b feature/nama-fitur`
+3. Commit perubahan: `git commit -m "feat: deskripsi perubahan"`
+4. Push branch: `git push origin feature/nama-fitur`
+5. Buat Pull Request.
+
+## 📄 Lisensi
+
+Proyek ini menggunakan lisensi **MIT**.
