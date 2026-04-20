@@ -34,7 +34,27 @@ storage/        # Log, cache, session, dan file runtime
 tests/          # Unit test & feature test
 ```
 
+## ✅ Penilaian Singkat Dokumentasi
+
+Secara umum dokumentasi **sudah bagus** untuk level project pembelajaran/portofolio karena:
+
+- tujuan aplikasi jelas,
+- fitur utama tercantum,
+- alur instalasi lokal sudah runut,
+- endpoint penting sudah dirangkum.
+
+Supaya lebih siap dipakai tim baru, saya tambahkan bagian prasyarat, troubleshooting, dan alur build produksi di bawah.
+
 ## 🚀 Cara Menjalankan di Lokal
+
+### Prasyarat
+
+Pastikan environment memenuhi kebutuhan berikut:
+
+- PHP 8.2+ (disarankan)
+- Composer 2.x
+- Node.js 18+ dan npm 9+
+- MySQL/MariaDB aktif
 
 ### 1) Clone repository
 
@@ -92,6 +112,16 @@ npm run dev
 
 Aplikasi biasanya bisa diakses di `http://127.0.0.1:8000`.
 
+## 🏭 Build untuk Produksi
+
+Untuk build aset frontend production:
+
+```bash
+npm run build
+```
+
+Lalu jalankan server PHP sesuai kebutuhan deployment (Nginx/Apache/PHP-FPM).
+
 ## 🧭 Ringkasan Endpoint Utama
 
 Berikut endpoint yang tersedia berdasarkan route saat ini:
@@ -119,6 +149,26 @@ Jalankan test dengan:
 ```bash
 php artisan test
 ```
+
+## 🛠️ Troubleshooting Singkat
+
+- Jika muncul error key aplikasi:
+
+  ```bash
+  php artisan key:generate
+  ```
+
+- Jika migrasi gagal karena database belum ada, buat dulu database sesuai `DB_DATABASE` di `.env`, lalu ulangi:
+
+  ```bash
+  php artisan migrate
+  ```
+
+- Jika asset tidak termuat saat development, pastikan Vite berjalan:
+
+  ```bash
+  npm run dev
+  ```
 
 ## 🤝 Kontribusi
 
